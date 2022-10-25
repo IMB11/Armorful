@@ -1,0 +1,146 @@
+{
+  "type": "illagerslovearmor:slot",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:leather_boots",
+          "conditions": [
+            {
+              "condition": "illagerslovearmor:wave",
+              "wave": 0 
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:golden_boots",
+          "conditions": [
+            {
+              "condition": "illagerslovearmor:wave",
+              "wave": 0 
+            },
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.045
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:golden_boots",
+          "conditions": [
+            {
+              "condition": "illagerslovearmor:wave",
+              "wave": 1
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chainmail_boots",
+          "conditions": [
+            {
+              "condition": "illagerslovearmor:wave",
+              "wave": 1
+            },
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.045
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chainmail_boots",
+          "conditions": [
+            {
+              "condition": "illagerslovearmor:wave",
+              "wave": 2
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_boots",
+          "conditions": [
+            {
+              "condition": "illagerslovearmor:wave",
+              "wave": 2
+            },
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.045
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_boots",
+          "conditions": [
+            {
+              "condition": "illagerslovearmor:wave",
+              "wave": 3
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:diamond_boots",
+          "conditions": [
+            {
+              "condition": "illagerslovearmor:wave",
+              "wave": 3
+            },
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.045
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:diamond_boots",
+          "conditions": [
+            {
+              "condition": "illagerslovearmor:wave",
+              "wave": 4
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:diamond_boots",
+          "conditions": [
+            {
+              "condition": "illagerslovearmor:wave",
+              "wave": 5
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:diamond_boots",
+          "conditions": [
+            {
+              "condition": "illagerslovearmor:wave",
+              "wave": 6
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:diamond_boots",
+          "conditions": [
+            {
+              "condition": "illagerslovearmor:wave",
+              "wave": 7
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

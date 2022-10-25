@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "mine.block.illagerslovearmor.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "AbstractIllagerMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
