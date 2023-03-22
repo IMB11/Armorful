@@ -31,7 +31,7 @@ public class IllusionerBipedRenderer extends IllagerBipedRenderer<IllusionerEnti
     public void render(IllusionerEntity p_114952_, float p_114953_, float p_114954_, MatrixStack p_114955_,
             VertexConsumerProvider p_114956_, int p_114957_) {
         if (p_114952_.isInvisible()) {
-            Vec3d[] avec3 = p_114952_.method_7065(p_114954_);
+            Vec3d[] avec3 = p_114952_.getMirrorCopyOffsets(p_114954_);
             float f = this.getAnimationProgress(p_114952_, p_114954_);
 
             for (int i = 0; i < avec3.length; ++i) {

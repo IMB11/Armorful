@@ -3,6 +3,7 @@ package mine.block.illagerslovearmor.client.renderer;
 import mine.block.illagerslovearmor.IllagersLoveArmorClient;
 import mine.block.illagerslovearmor.client.model.IllagerArmorModel;
 import mine.block.illagerslovearmor.client.model.IllagerBipedModel;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
@@ -25,7 +26,8 @@ public abstract class IllagerBipedRenderer<T extends IllagerEntity> extends MobE
         this.addFeature(new ElytraFeatureRenderer<>(this, builder.getModelLoader()));
         this.addFeature(new ArmorFeatureRenderer<>(this,
                 new IllagerArmorModel<>(builder.getPart(IllagersLoveArmorClient.BIPEDILLAGER_ARMOR_INNER_LAYER)),
-                new IllagerArmorModel<>(builder.getPart(IllagersLoveArmorClient.BIPEDILLAGER_ARMOR_OUTER_LAYER))));
+                new IllagerArmorModel<>(builder.getPart(IllagersLoveArmorClient.BIPEDILLAGER_ARMOR_OUTER_LAYER)),
+                MinecraftClient.getInstance().getBakedModelManager()));
     }
 
     @Override
