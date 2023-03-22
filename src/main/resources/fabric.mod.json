@@ -12,7 +12,7 @@
     "website": "https://mineblock11.dev/",
     "repo": "https://github.com/11mods/illagers-love-armor"
   },
-  "license": "AFL-3.0",
+  "license": "MIT",
   "icon": "icon.png",
   "environment": "*",
   "accessWidener": "ila.accesswidener",
@@ -30,7 +30,6 @@
   "depends": {
     "fabricloader": ">=0.14.10",
     "fabric": "*",
-    "minecraft": "1.19.2",
-    "mine11lib": "*"
+    "minecraft": "1.19.3"
   }
 }
