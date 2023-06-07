@@ -1,11 +1,11 @@
-package mine.block.illagerslovearmor;
+package com.mineblock11.illagersweararmor;
 
-import mine.block.illagerslovearmor.client.model.IllagerArmorModel;
-import mine.block.illagerslovearmor.client.model.IllagerBipedModel;
-import mine.block.illagerslovearmor.client.renderer.EvokerBipedRenderer;
-import mine.block.illagerslovearmor.client.renderer.IllusionerBipedRenderer;
-import mine.block.illagerslovearmor.client.renderer.PillagerBipedRenderer;
-import mine.block.illagerslovearmor.client.renderer.VindicatorBipedRenderer;
+import com.mineblock11.illagersweararmor.client.model.IllagerArmorModel;
+import com.mineblock11.illagersweararmor.client.model.IllagerBipedModel;
+import com.mineblock11.illagersweararmor.client.renderer.EvokerBipedRenderer;
+import com.mineblock11.illagersweararmor.client.renderer.IllusionerBipedRenderer;
+import com.mineblock11.illagersweararmor.client.renderer.PillagerBipedRenderer;
+import com.mineblock11.illagersweararmor.client.renderer.VindicatorBipedRenderer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -15,16 +15,14 @@ import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.Identifier;
 
-import static mine.block.illagerslovearmor.IllagersLoveArmor.MODID;
-
 @Environment(EnvType.CLIENT)
-public class IllagersLoveArmorClient implements ClientModInitializer {
+public class IllagersWearArmorClient implements ClientModInitializer {
     public static EntityModelLayer BIPEDILLAGER = new EntityModelLayer(
-            new Identifier(MODID + "illagerbiped"), "illagerbiped");
+            new Identifier(IllagersWearArmor.MODID + "illagerbiped"), "illagerbiped");
     public static EntityModelLayer BIPEDILLAGER_ARMOR_OUTER_LAYER = new EntityModelLayer(
-            new Identifier(MODID + "illagerbiped_outerarmor"), "illagerbiped_outerarmor");
+            new Identifier(IllagersWearArmor.MODID + "illagerbiped_outerarmor"), "illagerbiped_outerarmor");
     public static EntityModelLayer BIPEDILLAGER_ARMOR_INNER_LAYER = new EntityModelLayer(
-            new Identifier(MODID + "illagerbiped_innerarmor"), "illagerbiped_innerarmor");
+            new Identifier(IllagersWearArmor.MODID + "illagerbiped_innerarmor"), "illagerbiped_innerarmor");
     @Override
     public void onInitializeClient() {
         EntityModelLayerRegistry.registerModelLayer(BIPEDILLAGER, IllagerBipedModel::createBodyLayer);

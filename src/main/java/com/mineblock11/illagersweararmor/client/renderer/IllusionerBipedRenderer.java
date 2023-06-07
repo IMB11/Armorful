@@ -1,4 +1,4 @@
-package mine.block.illagerslovearmor.client.renderer;
+package com.mineblock11.illagersweararmor.client.renderer;
 
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory.Context;

@@ -1,7 +1,7 @@
-package mine.block.illagerslovearmor.mixin;
+package com.mineblock11.illagersweararmor.mixin;
 
 import com.google.common.collect.Maps;
-import mine.block.illagerslovearmor.loot_tables.ILATables;
+import com.mineblock11.illagersweararmor.loot_tables.ILATables;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
@@ -11,7 +11,7 @@ import net.minecraft.entity.raid.RaiderEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.LootTable;
-import net.minecraft.loot.context.LootContext;
+import net.minecraft.loot.context.LootContextParameterSet;
 import net.minecraft.loot.context.LootContextParameters;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
@@ -67,7 +67,7 @@ public abstract class AbstractIllagerMixin extends RaiderEntity {
     }
 
     public void giveArmorOnRaids() {
-        float difficultyChance = this.world.getDifficulty() == Difficulty.HARD ? 0.1F : 0.25F;
+        float difficultyChance = this.getWorld().getDifficulty() == Difficulty.HARD ? 0.3F : 0.65F;
         int illagerWaves = this.getRaid().getGroupsSpawned();
         float waveChances = getWaveArmorChances(illagerWaves);
         if (this.getRandom().nextFloat() < waveChances) {
@@ -88,18 +88,18 @@ public abstract class AbstractIllagerMixin extends RaiderEntity {
 
     public List<ItemStack> getItemsFromLootTable(EquipmentSlot slot) {
         if (EQUIPMENT_SLOT_ITEMS.containsKey(slot)) {
-            LootTable loot = this.world.getServer().getLootManager().getTable(EQUIPMENT_SLOT_ITEMS.get(slot));
-            LootContext.Builder lootcontext$builder = (new LootContext.Builder((ServerWorld) this.world))
-                    .parameter(LootContextParameters.THIS_ENTITY, this).random(this.getRandom());
+            LootTable loot = this.getWorld().getServer().getLootManager().getLootTable(EQUIPMENT_SLOT_ITEMS.get(slot));
+            LootContextParameterSet.Builder lootcontext$builder = (new LootContextParameterSet.Builder((ServerWorld) this.getWorld()))
+                    .add(LootContextParameters.THIS_ENTITY, this);
             return loot.generateLoot(lootcontext$builder.build(ILATables.SLOT));
         }
         return null;
     }
 
     protected void giveArmorNaturally(LocalDifficulty p_21383_) {
-        if (this.random.nextFloat() < 0.45F * p_21383_.getClampedLocalDifficulty()) {
+        if (this.random.nextFloat() < 0.75F * p_21383_.getClampedLocalDifficulty()) {
             int i = this.random.nextInt(2);
-            float f = this.world.getDifficulty() == Difficulty.HARD ? 0.1F : 0.25F;
+            float f = this.getWorld().getDifficulty() == Difficulty.HARD ? 0.1F : 0.25F;
             if (this.random.nextFloat() < 0.095F) {
                 ++i;
             }

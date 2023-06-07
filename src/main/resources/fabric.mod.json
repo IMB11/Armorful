@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "id": "illagerslovearmor",
+  "id": "illagersweararmor",
   "version": "${version}",
-  "name": "IllagersLoveArmor",
+  "name": "IllagersWearArmor",
   "description": "Fabric port of IllagersWearArmor",
   "authors": [
     "mineblock11",
     "seymourimadeit"
   ],
   "contact": {
-    "website": "https://mineblock11.dev/",
-    "repo": "https://github.com/11mods/illagers-love-armor"
+    "website": "https://docs.mineblock11.dev/",
+    "repo": "https://github.com/mineblock11/illagers-wear-armor-for-fabric"
   },
   "license": "MIT",
   "icon": "icon.png",
@@ -18,10 +18,10 @@
   "accessWidener": "ila.accesswidener",
   "entrypoints": {
     "client": [
-      "mine.block.illagerslovearmor.IllagersLoveArmorClient"
+      "com.mineblock11.illagersweararmor.IllagersWearArmorClient"
     ],
     "main": [
-      "mine.block.illagerslovearmor.IllagersLoveArmor"
+      "com.mineblock11.illagersweararmor.IllagersWearArmor"
     ]
   },
   "mixins": [
@@ -30,6 +30,6 @@
   "depends": {
     "fabricloader": ">=0.14.10",
     "fabric": "*",
-    "minecraft": "1.19.4"
+    "minecraft": "1.20"
   }
 }

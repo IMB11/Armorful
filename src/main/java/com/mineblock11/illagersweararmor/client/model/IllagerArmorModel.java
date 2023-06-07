@@ -1,4 +1,4 @@
-package mine.block.illagerslovearmor.client.model;
+package com.mineblock11.illagersweararmor.client.model;
 
 import net.minecraft.client.model.Dilation;
 import net.minecraft.client.model.ModelData;

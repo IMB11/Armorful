@@ -1,14 +1,14 @@
-package mine.block.illagerslovearmor;
+package com.mineblock11.illagersweararmor;
 
-import mine.block.illagerslovearmor.loot_tables.ILATables;
-import mine.block.illagerslovearmor.loot_tables.RaidWaveCondition;
+import com.mineblock11.illagersweararmor.loot_tables.ILATables;
+import com.mineblock11.illagersweararmor.loot_tables.RaidWaveCondition;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
-public class IllagersLoveArmor implements ModInitializer {
-    public static final String MODID = "illagerslovearmor";
+public class IllagersWearArmor implements ModInitializer {
+    public static final String MODID = "illagersweararmor";
     @Override
     public void onInitialize() {
         ILATables.init();

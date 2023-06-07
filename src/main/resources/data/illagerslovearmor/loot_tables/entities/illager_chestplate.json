@@ -1,5 +1,5 @@
 {
-  "type": "illagerslovearmor:slot",
+  "type": "illagersweararmor:slot",
   "pools": [
     {
       "rolls": 1,
@@ -9,7 +9,7 @@
           "name": "minecraft:leather_chestplate",
           "conditions": [
             {
-              "condition": "illagerslovearmor:wave",
+              "condition": "illagersweararmor:wave",
               "wave": 0 
             }
           ]
@@ -19,7 +19,7 @@
           "name": "minecraft:golden_chestplate",
           "conditions": [
             {
-              "condition": "illagerslovearmor:wave",
+              "condition": "illagersweararmor:wave",
               "wave": 0 
             },
             {
@@ -33,7 +33,7 @@
           "name": "minecraft:golden_chestplate",
           "conditions": [
             {
-              "condition": "illagerslovearmor:wave",
+              "condition": "illagersweararmor:wave",
               "wave": 1
             }
           ]
@@ -43,7 +43,7 @@
           "name": "minecraft:chainmail_chestplate",
           "conditions": [
             {
-              "condition": "illagerslovearmor:wave",
+              "condition": "illagersweararmor:wave",
               "wave": 1
             },
             {
@@ -57,7 +57,7 @@
           "name": "minecraft:chainmail_chestplate",
           "conditions": [
             {
-              "condition": "illagerslovearmor:wave",
+              "condition": "illagersweararmor:wave",
               "wave": 2
             }
           ]
@@ -67,7 +67,7 @@
           "name": "minecraft:iron_chestplate",
           "conditions": [
             {
-              "condition": "illagerslovearmor:wave",
+              "condition": "illagersweararmor:wave",
               "wave": 2
             },
             {
@@ -81,7 +81,7 @@
           "name": "minecraft:iron_chestplate",
           "conditions": [
             {
-              "condition": "illagerslovearmor:wave",
+              "condition": "illagersweararmor:wave",
               "wave": 3
             }
           ]
@@ -91,7 +91,7 @@
           "name": "minecraft:diamond_chestplate",
           "conditions": [
             {
-              "condition": "illagerslovearmor:wave",
+              "condition": "illagersweararmor:wave",
               "wave": 3
             },
             {
@@ -105,7 +105,7 @@
           "name": "minecraft:diamond_chestplate",
           "conditions": [
             {
-              "condition": "illagerslovearmor:wave",
+              "condition": "illagersweararmor:wave",
               "wave": 4
             }
           ]
@@ -115,7 +115,7 @@
           "name": "minecraft:diamond_chestplate",
           "conditions": [
             {
-              "condition": "illagerslovearmor:wave",
+              "condition": "illagersweararmor:wave",
               "wave": 5
             }
           ]
@@ -125,7 +125,7 @@
           "name": "minecraft:diamond_chestplate",
           "conditions": [
             {
-              "condition": "illagerslovearmor:wave",
+              "condition": "illagersweararmor:wave",
               "wave": 6
             }
           ]
@@ -135,7 +135,7 @@
           "name": "minecraft:diamond_chestplate",
           "conditions": [
             {
-              "condition": "illagerslovearmor:wave",
+              "condition": "illagersweararmor:wave",
               "wave": 7
             }
           ]

@@ -1,4 +1,4 @@
-package mine.block.illagerslovearmor.client.model;
+package com.mineblock11.illagersweararmor.client.model;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;

@@ -1,4 +1,4 @@
-package mine.block.illagerslovearmor.loot_tables;
+package com.mineblock11.illagersweararmor.loot_tables;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
