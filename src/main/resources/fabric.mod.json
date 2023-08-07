@@ -1,27 +1,28 @@
 {
   "schemaVersion": 1,
-  "id": "illagersweararmor",
+  "id": "armorful",
   "version": "${version}",
-  "name": "IllagersWearArmor",
-  "description": "Fabric port of IllagersWearArmor",
+  "name": "Armorful",
+  "description": "Adds armor support for various mobs.",
   "authors": [
     "mineblock11",
-    "seymourimadeit"
+    "seymourimadeit",
+    "Draylar"
   ],
   "contact": {
-    "website": "https://docs.mineblock11.dev/",
-    "repo": "https://github.com/mineblock11/illagers-wear-armor-for-fabric"
+    "website": "https://mineblock11.dev/",
+    "repo": "https://github.com/mineblock11/armorful"
   },
   "license": "MIT",
   "icon": "icon.png",
   "environment": "*",
-  "accessWidener": "ila.accesswidener",
+  "accessWidener": "armorful.accesswidener",
   "entrypoints": {
     "client": [
-      "com.mineblock11.illagersweararmor.IllagersWearArmorClient"
+      "com.mineblock11.armorful.Armorful"
     ],
     "main": [
-      "com.mineblock11.illagersweararmor.IllagersWearArmor"
+      "com.mineblock11.armorful.Armorful"
     ]
   },
   "mixins": [
