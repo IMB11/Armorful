@@ -27,8 +27,8 @@ The following illager mobs are supported:
 
 You can now craft Wolf Armor for your dogs!
 
-![crafting recipe for iron wolf armor]() 
-![image showcasing dog wearing wolf armor]()
+![crafting recipe for iron wolf armor](https://cdn.modrinth.com/data/LlOkR2e2/images/1f0ad4ea09b4a8c3d987dd5785165226b8db8a96.png) 
+![image showcasing dog wearing wolf armor](https://cdn.modrinth.com/data/LlOkR2e2/images/d7046610192849b2c59ae9c8f879dea658b2f56a.png)
 
 ## Drowned
 

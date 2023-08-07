@@ -4,9 +4,14 @@
   "package": "com.mineblock11.armorful.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "illagers.AbstractIllagerMixin"
+    "drowned.DrownedEntityMixin",
+    "illagers.AbstractIllagerMixin",
+    "wolves.EnchantmentMixin",
+    "wolves.LivingEntityMixin",
+    "wolves.WolfEntityMixin"
   ],
   "client": [
+    "wolves.client.WolfEntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

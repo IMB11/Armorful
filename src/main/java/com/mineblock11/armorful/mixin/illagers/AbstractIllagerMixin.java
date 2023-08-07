@@ -8,7 +8,6 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.mob.IllagerEntity;
 import net.minecraft.entity.raid.RaiderEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.context.LootContextParameterSet;
@@ -38,25 +37,14 @@ public abstract class AbstractIllagerMixin extends RaiderEntity {
             });
     private static final Map<EquipmentSlot, Identifier> NATURAL_SPAWN_EQUIPMENT_SLOT_ITEMS = Util.make(Maps.newHashMap(),
             (slotItems) -> {
-                slotItems.put(EquipmentSlot.HEAD, ArmorfulLootTables.NATURAL_SPAWN_ILLAGER_HELMET);
-                slotItems.put(EquipmentSlot.CHEST, ArmorfulLootTables.NATURAL_SPAWN_ILLAGER_CHEST);
-                slotItems.put(EquipmentSlot.LEGS, ArmorfulLootTables.NATURAL_SPAWN_ILLAGER_LEGGINGS);
-                slotItems.put(EquipmentSlot.FEET, ArmorfulLootTables.NATURAL_SPAWN_ILLAGER_FEET);
+                slotItems.put(EquipmentSlot.HEAD, ArmorfulLootTables.NATURAL_SPAWN_HELMET);
+                slotItems.put(EquipmentSlot.CHEST, ArmorfulLootTables.NATURAL_SPAWN_CHEST);
+                slotItems.put(EquipmentSlot.LEGS, ArmorfulLootTables.NATURAL_SPAWN_LEGGINGS);
+                slotItems.put(EquipmentSlot.FEET, ArmorfulLootTables.NATURAL_SPAWN_FEET);
             });
 
     protected AbstractIllagerMixin(EntityType<? extends RaiderEntity> entityType, World world) {
         super(entityType, world);
-    }
-
-    @Override
-    public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty,
-            SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound nbtData) {
-        if (this.getRaid() != null && spawnReason == SpawnReason.EVENT) {
-            this.giveArmorOnRaids();
-        } else {
-            this.giveArmorNaturally(difficulty);
-        }
-        return super.initialize(world, difficulty, spawnReason, entityData, nbtData);
     }
 
     private static float getWaveArmorChances(int waves) {
@@ -71,6 +59,17 @@ public abstract class AbstractIllagerMixin extends RaiderEntity {
             case 7 -> 0.48f;
             default -> 0;
         };
+    }
+
+    @Override
+    public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty,
+                                 SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound nbtData) {
+        if (this.getRaid() != null && spawnReason == SpawnReason.EVENT) {
+            this.giveArmorOnRaids();
+        } else {
+            this.giveArmorNaturally(difficulty);
+        }
+        return super.initialize(world, difficulty, spawnReason, entityData, nbtData);
     }
 
     public void giveArmorOnRaids() {

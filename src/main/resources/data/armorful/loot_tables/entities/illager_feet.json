@@ -10,7 +10,7 @@
           "conditions": [
             {
               "condition": "armorful:wave",
-              "wave": 0 
+              "wave": 0
             }
           ]
         },
@@ -20,7 +20,7 @@
           "conditions": [
             {
               "condition": "armorful:wave",
-              "wave": 0 
+              "wave": 0
             },
             {
               "condition": "minecraft:random_chance",

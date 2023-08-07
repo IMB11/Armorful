@@ -12,6 +12,8 @@ repositories {
     maven { url "https://storage.googleapis.com/devan-maven/" }
     maven { url 'https://maven.wispforest.io' }
     maven { url 'https://maven.mineblock11.dev/releases'}
+    maven { url "https://server.bbkr.space/artifactory/libs-release" }
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
@@ -20,6 +22,8 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
     include annotationProcessor(modImplementation("io.wispforest:owo-lib:${project.owo_version}"))
+
+    include modImplementation('com.github.Draylar:static-content:1.0.1')
 }
 
 loom {

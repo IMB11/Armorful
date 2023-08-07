@@ -20,14 +20,14 @@ public class ArmorfulLootTables {
             "entities/illager_legs");
     public static final Identifier ILLAGER_FEET = ArmorfulUtil.id(
             "entities/illager_feet");
-    public static final Identifier NATURAL_SPAWN_ILLAGER_HELMET = ArmorfulUtil.id(
-            "entities/natural_spawn/illager_helmet");
-    public static final Identifier NATURAL_SPAWN_ILLAGER_CHEST = ArmorfulUtil.id(
-            "entities/natural_spawn/illager_chestplate");
-    public static final Identifier NATURAL_SPAWN_ILLAGER_LEGGINGS = ArmorfulUtil.id(
-            "entities/natural_spawn/illager_legs");
-    public static final Identifier NATURAL_SPAWN_ILLAGER_FEET = ArmorfulUtil.id(
-            "entities/natural_spawn/illager_feet");
+    public static final Identifier NATURAL_SPAWN_HELMET = ArmorfulUtil.id(
+            "entities/natural_spawn/helmet");
+    public static final Identifier NATURAL_SPAWN_CHEST = ArmorfulUtil.id(
+            "entities/natural_spawn/chestplate");
+    public static final Identifier NATURAL_SPAWN_LEGGINGS = ArmorfulUtil.id(
+            "entities/natural_spawn/legs");
+    public static final Identifier NATURAL_SPAWN_FEET = ArmorfulUtil.id(
+            "entities/natural_spawn/feet");
 
     public static final BiMap<Identifier, LootContextType> REGISTRY = HashBiMap.create();
     public static final LootContextType SLOT = register("slot", (table) -> table.require(LootContextParameters.THIS_ENTITY));
