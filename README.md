@@ -34,7 +34,7 @@ You can now craft Wolf Armor for your dogs!
 
 Drowned can now have a chance to naturally spawn with armor depending on the difficulty of the world.
 
-![image]()
+![image](https://cdn.modrinth.com/data/LlOkR2e2/images/584d421cba9b1f68c7ab5b74a84fbe8486bfcad0.png)
 
 # License
 
