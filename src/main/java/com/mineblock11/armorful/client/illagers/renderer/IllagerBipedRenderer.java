@@ -26,8 +26,8 @@ public abstract class IllagerBipedRenderer<T extends IllagerEntity> extends MobE
         this.addFeature(new ElytraFeatureRenderer<>(this, builder.getModelLoader()));
         this.addFeature(new ArmorFeatureRenderer<>(this,
                 new IllagerArmorModel<>(builder.getPart(IllagerArmorClient.ILLAGER_BIPED_INNER_ARMOR)),
-                new IllagerArmorModel<>(builder.getPart(IllagerArmorClient.ILLAGER_BIPED_OUTER_ARMOR)),
-                MinecraftClient.getInstance().getBakedModelManager()));
+                new IllagerArmorModel<>(builder.getPart(IllagerArmorClient.ILLAGER_BIPED_OUTER_ARMOR))
+                ));
     }
 
     @Override

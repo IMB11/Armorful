@@ -5,9 +5,8 @@ import com.google.common.collect.HashBiMap;
 import com.mineblock11.armorful.util.ArmorfulUtil;
 import net.minecraft.loot.context.LootContextParameters;
 import net.minecraft.loot.context.LootContextType;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 import java.util.function.Consumer;
 
@@ -46,7 +45,7 @@ public class ArmorfulLootTables {
     }
 
     public static void init() {
-        Registry.register(Registries.LOOT_CONDITION_TYPE, ArmorfulUtil.id("wave"), RaidWaveCondition.WAVE);
-        Registry.register(Registries.LOOT_CONDITION_TYPE, ArmorfulUtil.id("configurable"), ConfigurableCondition.CONFIGURABLE_CHANCE);
+        Registry.register(Registry.LOOT_CONDITION_TYPE, ArmorfulUtil.id("wave"), RaidWaveCondition.WAVE);
+        Registry.register(Registry.LOOT_CONDITION_TYPE, ArmorfulUtil.id("configurable"), ConfigurableCondition.CONFIGURABLE_CHANCE);
     }
 }

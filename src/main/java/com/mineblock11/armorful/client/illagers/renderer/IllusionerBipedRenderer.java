@@ -28,7 +28,7 @@ public class IllusionerBipedRenderer extends IllagerBipedRenderer<IllusionerEnti
     public void render(IllusionerEntity entity, float entityYaw, float partialTicks, MatrixStack matrices,
                        VertexConsumerProvider vertexProvider, int light) {
         if (entity.isInvisible()) {
-            Vec3d[] avec3 = entity.getMirrorCopyOffsets(partialTicks);
+            Vec3d[] avec3 = entity.method_7065(partialTicks);
             float f = this.getAnimationProgress(entity, partialTicks);
 
             for (int i = 0; i < avec3.length; ++i) {

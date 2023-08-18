@@ -5,10 +5,9 @@ import com.mineblock11.armorful.wolves.WolfDataAccessor;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.entity.passive.WolfEntity;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 public class ArmorfulUtil {
     public static Identifier id(String id) {
@@ -27,6 +26,6 @@ public class ArmorfulUtil {
 
     public static SoundEvent registerSoundEvent(String name) {
         Identifier id = ArmorfulUtil.id(name);
-        return Registry.register(Registries.SOUND_EVENT, id, SoundEvent.of(id));
+        return Registry.register(Registry.SOUND_EVENT, id, new SoundEvent(id));
     }
 }

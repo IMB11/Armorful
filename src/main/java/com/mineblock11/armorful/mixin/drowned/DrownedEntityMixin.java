@@ -10,7 +10,7 @@ import net.minecraft.entity.mob.DrownedEntity;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.LootTable;
-import net.minecraft.loot.context.LootContextParameterSet;
+import net.minecraft.loot.context.LootContext;
 import net.minecraft.loot.context.LootContextParameters;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
@@ -49,9 +49,9 @@ public abstract class DrownedEntityMixin extends ZombieEntity {
 
     public List<ItemStack> getNaturalSpawnItemsFromLootTable(EquipmentSlot slot) {
         if (NATURAL_SPAWN_EQUIPMENT_SLOT_ITEMS.containsKey(slot)) {
-            LootTable loot = this.getWorld().getServer().getLootManager().getLootTable(NATURAL_SPAWN_EQUIPMENT_SLOT_ITEMS.get(slot));
-            LootContextParameterSet.Builder lootcontext$builder = (new LootContextParameterSet.Builder((ServerWorld) this.getWorld()))
-                    .add(LootContextParameters.THIS_ENTITY, this);
+            LootTable loot = this.getWorld().getServer().getLootManager().getTable(NATURAL_SPAWN_EQUIPMENT_SLOT_ITEMS.get(slot));
+            LootContext.Builder lootcontext$builder = (new LootContext.Builder((ServerWorld) this.getWorld()))
+                    .parameter(LootContextParameters.THIS_ENTITY, this);
             return loot.generateLoot(lootcontext$builder.build(ArmorfulLootTables.SLOT));
         }
 

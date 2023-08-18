@@ -8,9 +8,8 @@ import com.mineblock11.armorful.util.ArmorfulUtil;
 import draylar.staticcontent.api.ContentData;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.item.Item;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 public class WolfArmorData implements ContentData {
 
@@ -44,9 +43,8 @@ public class WolfArmorData implements ContentData {
             }
         }
 
-        var registeredItem = Registry.register(Registries.ITEM, ArmorfulUtil.id(name + "_wolf_armor"), item);
-        Armorful.WOLF_ARMOR_ITEMS.add(registeredItem);
-        DispenserBlock.registerBehavior(item, new WolfArmorDispenserBehavior());
+        var registeredItem = Registry.register(Registry.ITEM, ArmorfulUtil.id(name + "_wolf_armor"), item);
+        DispenserBlock.registerBehavior(registeredItem, new WolfArmorDispenserBehavior());
     }
 
     public int getBonus() {
