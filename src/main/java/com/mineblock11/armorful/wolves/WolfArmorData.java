@@ -43,7 +43,7 @@ public class WolfArmorData implements ContentData {
             }
         }
 
-        var registeredItem = Registry.register(Registry.ITEM, ArmorfulUtil.id(name + "_wolf_armor"), item);
+        var registeredItem = Registry.register(Registry.ITEM, new Identifier("wolveswitharmor", name + "_wolf_armor"), item);
         DispenserBlock.registerBehavior(registeredItem, new WolfArmorDispenserBehavior());
     }
 

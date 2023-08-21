@@ -1,9 +1,9 @@
 {
-  "item.armorful.leather_wolf_armor": "Armatura per lupi di cuoio",
-  "item.armorful.golden_wolf_armor": "Armatura per lupi d'oro",
-  "item.armorful.iron_wolf_armor": "Armatura per lupi di ferro",
-  "item.armorful.diamond_wolf_armor": "Armatura per lupi di diamante",
-  "item.armorful.netherite_wolf_armor": "Armatura per lupi di netherite",
+  "item.wolveswitharmor.leather_wolf_armor": "Armatura per lupi di cuoio",
+  "item.wolveswitharmor.golden_wolf_armor": "Armatura per lupi d'oro",
+  "item.wolveswitharmor.iron_wolf_armor": "Armatura per lupi di ferro",
+  "item.wolveswitharmor.diamond_wolf_armor": "Armatura per lupi di diamante",
+  "item.wolveswitharmor.netherite_wolf_armor": "Armatura per lupi di netherite",
   "itemGroup.armorful.group": "Wolves With Armor",
   "armorful.tooltip.when_equipped": "Sul lupo:",
   "armorful.tooltip.bonus": " Punti armatura: +%s"
