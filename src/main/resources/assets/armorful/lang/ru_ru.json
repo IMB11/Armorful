@@ -1,10 +1,11 @@
 {
-  "item.armorful.leather_wolf_armor": "Коженая Броня для Волка",
-  "item.armorful.golden_wolf_armor": "Золотая Броня для Волка",
-  "item.armorful.iron_wolf_armor": "Железная Броня для Волка",
-  "item.armorful.diamond_wolf_armor": "Алмазная Броня для Волка",
-  "item.armorful.netherite_wolf_armor": "Незеритовая Броня для Волка",
-  "itemGroup.armorful.group": "Wolves With Armor",
-  "armorful.tooltip.when_equipped": "При надевании на волка:",
-  "armorful.tooltip.bonus": " +%s Броня"
+	"item.armorful.leather_wolf_armor": "Кожаная волчья броня",
+	"item.armorful.golden_wolf_armor": "Золотая волчья броня",
+	"item.armorful.iron_wolf_armor": "Железная волчья броня",
+	"item.armorful.diamond_wolf_armor": "Алмазная волчья броня",
+	"item.armorful.netherite_wolf_armor": "Незеритовая волчья броня",
+	"itemGroup.armorful.group": "Волчья броня",
+	"armorful.tooltip.when_equipped": "При надевании на волка:",
+	"armorful.tooltip.bonus": " +%s броня",
+	"subtitles.armor.wolf": "Волк надевает броню"
 }
