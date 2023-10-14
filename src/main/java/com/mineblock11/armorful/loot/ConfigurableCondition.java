@@ -3,21 +3,29 @@ package com.mineblock11.armorful.loot;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.loot.condition.LootCondition;
 import net.minecraft.loot.condition.LootConditionType;
 import net.minecraft.loot.context.LootContext;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.JsonSerializer;
 
 import java.util.HashMap;
 import java.util.function.Supplier;
 
 public class ConfigurableCondition implements LootCondition {
-    public static final LootConditionType CONFIGURABLE_CHANCE = new LootConditionType(new ConfigurableChanceSerializer());
+    public static final Codec<ConfigurableCondition> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+            Identifier.CODEC.fieldOf("config").forGetter(ConfigurableCondition::getConfigFetcherID)
+    ).apply(instance, ConfigurableCondition::new));
+    public static final LootConditionType CONFIGURABLE_CHANCE = new LootConditionType(CODEC);
     private static final HashMap<Identifier, Supplier<Boolean>> CONFIG_FETCHERS = new HashMap<>();
 
     static {
         // Register fetchers here.
+    }
+
+    public Identifier getConfigFetcherID() {
+        return configFetcherID;
     }
 
     private final Identifier configFetcherID;
@@ -38,16 +46,16 @@ public class ConfigurableCondition implements LootCondition {
         return configFetcher.get();
     }
 
-    public static class ConfigurableChanceSerializer implements JsonSerializer<ConfigurableCondition> {
-        @Override
-        public void toJson(JsonObject json, ConfigurableCondition object, JsonSerializationContext context) {
-            json.addProperty("config", object.configFetcherID.toString());
-        }
-
-        @Override
-        public ConfigurableCondition fromJson(JsonObject json, JsonDeserializationContext context) {
-            Identifier identifier = Identifier.tryParse(json.get("config").getAsString());
-            return new ConfigurableCondition(identifier);
-        }
-    }
+//    public static class ConfigurableChanceSerializer implements JsonSerializer<ConfigurableCondition> {
+//        @Override
+//        public void toJson(JsonObject json, ConfigurableCondition object, JsonSerializationContext context) {
+//            json.addProperty("config", object.configFetcherID.toString());
+//        }
+//
+//        @Override
+//        public ConfigurableCondition fromJson(JsonObject json, JsonDeserializationContext context) {
+//            Identifier identifier = Identifier.tryParse(json.get("config").getAsString());
+//            return new ConfigurableCondition(identifier);
+//        }
+//    }
 }

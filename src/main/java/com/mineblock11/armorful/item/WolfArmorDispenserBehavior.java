@@ -16,10 +16,10 @@ public class WolfArmorDispenserBehavior extends FallibleItemDispenserBehavior {
 
     @Override
     public ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
-        BlockPos blockPos = pointer.getPos().offset(pointer.getBlockState().get(DispenserBlock.FACING));
+        BlockPos blockPos = pointer.pos().offset(pointer.state().get(DispenserBlock.FACING));
 
         List<WolfEntity> wolves = pointer
-                .getWorld()
+                .world()
                 .getEntitiesByClass(WolfEntity.class, new Box(blockPos), wolf -> wolf.isAlive() && ArmorfulUtil.getWolfData(wolf).getWolfArmor().isEmpty());
 
         Iterator<WolfEntity> iterator = wolves.iterator();
