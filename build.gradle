@@ -13,7 +13,9 @@ repositories {
     maven { url 'https://maven.wispforest.io' }
     maven { url 'https://maven.mineblock11.dev/releases'}
     maven { url "https://server.bbkr.space/artifactory/libs-release" }
-    maven { url 'https://jitpack.io' }
+    maven {
+        url "https://maven.draylar.dev/releases"
+    }
 }
 
 dependencies {
@@ -23,7 +25,7 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 //    include annotationProcessor(modImplementation("io.wispforest:owo-lib:${project.owo_version}"))
 
-    include modImplementation('com.github.Draylar:static-content:1.0.1')
+    include modImplementation("draylar:static-content:1.1.0-1.18.2")
 }
 
 loom {
