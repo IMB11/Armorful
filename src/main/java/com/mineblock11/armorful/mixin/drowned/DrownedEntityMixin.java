@@ -44,8 +44,10 @@ public abstract class DrownedEntityMixin extends ZombieEntity {
 
     @Inject(method = "initialize", at = @At("HEAD"), cancellable = false)
     public void initializeArmor(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, EntityData entityData, NbtCompound entityNbt, CallbackInfoReturnable<EntityData> cir) {
-        if (spawnReason == SpawnReason.STRUCTURE) return;
-        this.giveArmorNaturally(difficulty);
+        if(world instanceof ServerWorld) {
+            if (spawnReason == SpawnReason.STRUCTURE) return;
+            this.giveArmorNaturally(difficulty);
+        }
     }
 
     public List<ItemStack> getNaturalSpawnItemsFromLootTable(EquipmentSlot slot) {

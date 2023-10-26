@@ -64,10 +64,12 @@ public abstract class AbstractIllagerMixin extends RaiderEntity {
     @Override
     public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty,
                                  SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound nbtData) {
-        if (this.getRaid() != null && spawnReason == SpawnReason.EVENT) {
-            this.giveArmorOnRaids();
-        } else {
-            this.giveArmorNaturally(difficulty);
+        if(world instanceof ServerWorld) {
+            if (this.getRaid() != null && spawnReason == SpawnReason.EVENT) {
+                this.giveArmorOnRaids();
+            } else {
+                this.giveArmorNaturally(difficulty);
+            }
         }
         return super.initialize(world, difficulty, spawnReason, entityData, nbtData);
     }
