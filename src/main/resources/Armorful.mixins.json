@@ -5,13 +5,9 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "drowned.DrownedEntityMixin",
-    "illagers.AbstractIllagerMixin",
-    "wolves.EnchantmentMixin",
-    "wolves.LivingEntityMixin",
-    "wolves.WolfEntityMixin"
+    "illagers.AbstractIllagerMixin"
   ],
   "client": [
-    "wolves.client.WolfEntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "armorful:item/leather_wolf_armor"
-  }
-}

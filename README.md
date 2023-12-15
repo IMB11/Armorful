@@ -1,14 +1,14 @@
-![](https://github.com/mineblock11/mineblock11/blob/master/fabric-api_64h.png?raw=true) [![](https://github.com/intergrav/devins-badges/blob/v2/assets/cozy/social/discord-plural_64h.png?raw=true)](https://discord.gg/UzHtJKqHny)
+![](https://github.com/mineblock11/mineblock11/blob/master/fabric-api_64h.png?raw=true) [![](https://cdn.mineblock11.dev/mineblock%20badge_64h.png)](https://discord.gg/UzHtJKqHny) [![](https://cdn.mineblock11.dev/modding-elite-badge.png)](https://ko-fi.com/mineblock11)
 
 # Armorful
 
-*Looking for Illagers Wear Armor For Fabric? Armorful is the continuation of this mod with some extra features and a greater span of configuration.*
+*Looking for Illagers Wear Armor For Fabric? Armorful is the continuation of this mod with some extra features*
 
 Armorful adds armor for various mobs naturally, and provides various armor items that can be used on specific mobs.
 
-The entire mod is configurable. Don't want Wolf Armor or drowned support? Simply disable it in the configuration menu, or the configuration file if you're a server admin.
+## Roadmap
 
-![config screen]()
+- Configurable Chances + Module System
 
 ## Illagers (Pillagers)
 
@@ -23,15 +23,6 @@ The following illager mobs are supported:
 
 ![image showcasing illagers](https://cdn.modrinth.com/data/LlOkR2e2/images/030272411cd4ee48acca801a158b0dde9e18d169.png)
 
-## Wolves
-
-You can now craft Wolf Armor for your dogs!
-
-(Waiting for the snapshot to come out that has wolf armor, then I will integrate it)
-
-![crafting recipe for iron wolf armor](https://cdn.modrinth.com/data/LlOkR2e2/images/1f0ad4ea09b4a8c3d987dd5785165226b8db8a96.png) 
-![image showcasing dog wearing wolf armor](https://cdn.modrinth.com/data/LlOkR2e2/images/d7046610192849b2c59ae9c8f879dea658b2f56a.png)
-
 ## Drowned
 
 Drowned can now have a chance to naturally spawn with armor depending on the difficulty of the world.
@@ -41,10 +32,3 @@ Drowned can now have a chance to naturally spawn with armor depending on the dif
 # License
 
 All contents of this repository is under the MIT license.
-
-## Credits
-
-Some parts of Armorful are a continuation of some mods that have not been updated in a while (except Illagers Wear Armor For Fabric, which is now "Armorful")
-
-- [Wolves With Armor (MIT) by Draylar](https://github.com/Draylar/wolves-with-armor)
-- Illagers Wear Armor For Fabric (port of [Illagers Wear Armor by seymourimadeit](https://github.com/seymourimadeit/IllagersWearArmor))

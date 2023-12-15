@@ -5,13 +5,13 @@
   "name": "Armorful",
   "description": "Adds armor support for various mobs.",
   "authors": [
-    "mineblock11",
+    "IMB11 (mineblock11)",
     "seymourimadeit",
     "Draylar"
   ],
   "contact": {
-    "website": "https://mineblock11.dev/",
-    "repo": "https://github.com/mineblock11/armorful"
+    "website": "https://imb11.dev/",
+    "repo": "https://github.com/imb11/armorful"
   },
   "license": "MIT",
   "icon": "icon.png",
@@ -26,7 +26,7 @@
     ]
   },
   "mixins": [
-    "IllagersLoveArmor.mixins.json"
+    "Armorful.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.14.10",

@@ -1,10 +1,8 @@
 package com.mineblock11.armorful.util;
 
 import com.mineblock11.armorful.Armorful;
-import com.mineblock11.armorful.wolves.WolfDataAccessor;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.SoundEvent;
@@ -19,10 +17,6 @@ public class ArmorfulUtil {
         EntityModelLayer modelLayer = new EntityModelLayer(id(id), id);
         EntityModelLayerRegistry.registerModelLayer(modelLayer, texturedModelDataProvider);
         return modelLayer;
-    }
-
-    public static WolfDataAccessor getWolfData(WolfEntity wolf) {
-        return ((WolfDataAccessor) wolf);
     }
 
     public static SoundEvent registerSoundEvent(String name) {
