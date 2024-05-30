@@ -8,6 +8,8 @@ import net.minecraft.Util;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
@@ -16,6 +18,7 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -44,9 +47,13 @@ public class ArmorfulUtil {
                 slotItems.put(EquipmentSlot.FEET, ArmorfulLootTables.NATURAL_SPAWN_FEET);
             });
 
-    public static List<ItemStack> getNaturalSpawnItemsFromLootTable(Entity entity, EquipmentSlot slot) {
+    public static List<ItemStack> getNaturalSpawnItemsFromLootTable(LivingEntity entity, EquipmentSlot slot) {
         if (NATURAL_SPAWN_EQUIPMENT_SLOT_ITEMS.containsKey(slot)) {
+            /*? >=1.20.6 {*/
+            LootTable loot = entity.level().getServer().reloadableRegistries().getLootTable(ResourceKey.create(Registries.LOOT_TABLE, NATURAL_SPAWN_EQUIPMENT_SLOT_ITEMS.get(slot)));
+            /*? } else {*//*
             LootTable loot = entity.level().getServer().getLootData().getLootTable(NATURAL_SPAWN_EQUIPMENT_SLOT_ITEMS.get(slot));
+            *//*?}*/
             LootParams.Builder lootcontext$builder = (new LootParams.Builder((ServerLevel) entity.level()))
                     .withParameter(LootContextParams.THIS_ENTITY, entity);
             return loot.getRandomItems(lootcontext$builder.create(ArmorfulLootTables.SLOT));
@@ -55,7 +62,7 @@ public class ArmorfulUtil {
         return null;
     }
 
-    public static void giveArmorNaturally(RandomSource random, Entity entity, DifficultyInstance difficulty) {
+    public static void giveArmorNaturally(RandomSource random, LivingEntity entity, DifficultyInstance difficulty) {
         if (random.nextFloat() < 0.9F * difficulty.getSpecialMultiplier()) {
             float difficultyChance = entity.level().getDifficulty() == Difficulty.HARD ? 0.1F : 0.25F;
             boolean flag = true;

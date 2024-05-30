@@ -4,7 +4,6 @@ import com.google.common.collect.Maps;
 import dev.imb11.armorful.loot.ArmorfulLootTables;
 import dev.imb11.armorful.util.ArmorfulUtil;
 import net.minecraft.Util;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Difficulty;
@@ -13,6 +12,8 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.entity.monster.AbstractIllager;
+import net.minecraft.world.entity.monster.Witch;
 import net.minecraft.world.entity.raid.Raider;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -27,7 +28,7 @@ import org.spongepowered.asm.mixin.Unique;
 import java.util.List;
 import java.util.Map;
 
-@Mixin(targets = {"net.minecraft.world.entity.monster.AbstractIllager", "net.minecraft.world.entity.monster.Witch"})
+@Mixin(value = {AbstractIllager.class, Witch.class})
 public abstract class AbstractRaiderMixin extends Raider {
     @Unique
     private static final Map<EquipmentSlot, ResourceLocation> EQUIPMENT_SLOT_ITEMS = Util.make(Maps.newHashMap(),
@@ -57,8 +58,12 @@ public abstract class AbstractRaiderMixin extends Raider {
     }
 
     @Override
+    /*? <1.20.6 {*//*
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty,
-                                 MobSpawnType spawnReason, @Nullable SpawnGroupData entityData, @Nullable CompoundTag nbtData) {
+                                 MobSpawnType spawnReason, @Nullable SpawnGroupData entityData, @Nullable net.minecraft.nbt.CompoundTag nbtData) {
+    *//*? } else {*/
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType spawnReason, @Nullable SpawnGroupData entityData) {
+    /*?}*/
         if(world instanceof ServerLevel) {
             if (this.getCurrentRaid() != null && spawnReason == MobSpawnType.EVENT) {
                 this.giveArmorOnRaids();
@@ -66,7 +71,11 @@ public abstract class AbstractRaiderMixin extends Raider {
                 ArmorfulUtil.giveArmorNaturally(this.random, this, difficulty);
             }
         }
+        /*? <1.20.6 {*//*
         return super.finalizeSpawn(world, difficulty, spawnReason, entityData, nbtData);
+        *//*? } else {*/
+        return super.finalizeSpawn(world, difficulty, spawnReason, entityData);
+        /*?}*/
     }
 
     @Unique
@@ -93,7 +102,11 @@ public abstract class AbstractRaiderMixin extends Raider {
     @Unique
     public List<ItemStack> getItemsFromLootTable(EquipmentSlot slot) {
         if (EQUIPMENT_SLOT_ITEMS.containsKey(slot)) {
+            /*? >=1.20.6 {*/
+            LootTable loot = this.level().getServer().reloadableRegistries().getLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE, EQUIPMENT_SLOT_ITEMS.get(slot)));
+            /*? } else {*//*
             LootTable loot = this.level().getServer().getLootData().getLootTable(EQUIPMENT_SLOT_ITEMS.get(slot));
+            *//*?}*/
             LootParams.Builder lootcontext$builder = (new LootParams.Builder((ServerLevel) this.level()))
                     .withParameter(LootContextParams.THIS_ENTITY, this);
             return loot.getRandomItems(lootcontext$builder.create(ArmorfulLootTables.SLOT));

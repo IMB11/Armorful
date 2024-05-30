@@ -15,11 +15,9 @@ import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.monster.Vex;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
 
 import java.util.Map;
 
@@ -56,14 +54,18 @@ public class VexArmorLayer extends RenderLayer<Vex, VexModel> {
 
     private void renderArmorPiece(PoseStack pPoseStack, MultiBufferSource pBuffer, Vex pLivingEntity, EquipmentSlot pSlot, int p_117123_, HumanoidModel pModel) {
         ItemStack itemstack = pLivingEntity.getItemBySlot(pSlot);
-        if (itemstack.getItem() instanceof ArmorItem) {
-            ArmorItem armoritem = (ArmorItem) itemstack.getItem();
+        if (itemstack.getItem() instanceof ArmorItem armoritem) {
             if (armoritem.getEquipmentSlot() == pSlot) {
                 this.setPartVisibility(pModel, pSlot);
                 Model model = getArmorModel(pSlot);
                 boolean flag1 = itemstack.hasFoil();
+                /*? >=1.20.6 {*/
+                if (armoritem.components().has(net.minecraft.core.component.DataComponents.DYED_COLOR)) {
+                    int i = armoritem.components().get(net.minecraft.core.component.DataComponents.DYED_COLOR).rgb();
+                /*? } else {*//*
                 if (armoritem instanceof net.minecraft.world.item.DyeableLeatherItem) {
                     int i = ((net.minecraft.world.item.DyeableLeatherItem) armoritem).getColor(itemstack);
+                *//*?}*/
                     float f = (float) (i >> 16 & 255) / 255.0F;
                     float f1 = (float) (i >> 8 & 255) / 255.0F;
                     float f2 = (float) (i & 255) / 255.0F;
@@ -168,7 +170,11 @@ public class VexArmorLayer extends RenderLayer<Vex, VexModel> {
 
     public ResourceLocation getArmorResource(ItemStack stack, EquipmentSlot slot, String type) {
         ArmorItem item = (ArmorItem) stack.getItem();
+        /*? >=1.20.6 {*/
+        String texture = item.getMaterial().getRegisteredName();
+        /*? } else {*//*
         String texture = item.getMaterial().getName();
+        *//*?}*/
         String domain = "minecraft";
         int idx = texture.indexOf(':');
         if (idx != -1) {

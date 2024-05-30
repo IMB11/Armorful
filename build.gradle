@@ -28,8 +28,10 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${property("deps.fabric_api")}"
 }
 
-loom {
-    accessWidenerPath = getRootProject().file("src/main/resources/aw/" + stonecutter.current.version + ".accesswidener")
+if(stonecutter.current.active) {
+    loom {
+        accessWidenerPath = getRootProject().file("src/main/resources/aw/" + stonecutter.current.version + ".accesswidener")
+    }
 }
 
 processResources {
