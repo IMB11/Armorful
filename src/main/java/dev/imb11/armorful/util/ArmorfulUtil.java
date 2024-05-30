@@ -56,13 +56,13 @@ public class ArmorfulUtil {
     }
 
     public static void giveArmorNaturally(RandomSource random, Entity entity, DifficultyInstance difficulty) {
-        if (random.nextFloat() < 0.15F * difficulty.getSpecialMultiplier()) {
+        if (random.nextFloat() < 0.9F * difficulty.getSpecialMultiplier()) {
             float difficultyChance = entity.level().getDifficulty() == Difficulty.HARD ? 0.1F : 0.25F;
             boolean flag = true;
 
             for (EquipmentSlot slotType : EquipmentSlot.values()) {
                 if (slotType.getType() == EquipmentSlot.Type.ARMOR) {
-                    if (!flag && random.nextFloat() < difficultyChance) {
+                    if (!flag && random.nextFloat() < difficultyChance + 1F) {
                         break;
                     }
 

@@ -45,7 +45,6 @@ public abstract class AbstractRaiderMixin extends Raider {
     @Unique
     private static float getWaveArmorChances(int waves) {
         return switch (waves) {
-            case 0 -> 0.30f;
             case 1 -> 0.32f;
             case 2 -> 0.34f;
             case 3 -> 0.38f;

@@ -10,21 +10,7 @@
           "conditions": [
             {
               "condition": "armorful:wave",
-              "wave": 0
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:golden_boots",
-          "conditions": [
-            {
-              "condition": "armorful:wave",
-              "wave": 0
-            },
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.045
+              "wave": 1
             }
           ]
         },
@@ -35,16 +21,6 @@
             {
               "condition": "armorful:wave",
               "wave": 1
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:chainmail_boots",
-          "conditions": [
-            {
-              "condition": "armorful:wave",
-              "wave": 1
             },
             {
               "condition": "minecraft:random_chance",
@@ -54,7 +30,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:chainmail_boots",
+          "name": "minecraft:golden_boots",
           "conditions": [
             {
               "condition": "armorful:wave",
@@ -64,7 +40,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:iron_boots",
+          "name": "minecraft:chainmail_boots",
           "conditions": [
             {
               "condition": "armorful:wave",
@@ -78,7 +54,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:iron_boots",
+          "name": "minecraft:chainmail_boots",
           "conditions": [
             {
               "condition": "armorful:wave",
@@ -88,7 +64,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:diamond_boots",
+          "name": "minecraft:iron_boots",
           "conditions": [
             {
               "condition": "armorful:wave",
@@ -97,6 +73,16 @@
             {
               "condition": "minecraft:random_chance",
               "chance": 0.045
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_boots",
+          "conditions": [
+            {
+              "condition": "armorful:wave",
+              "wave": 4
             }
           ]
         },
@@ -107,6 +93,10 @@
             {
               "condition": "armorful:wave",
               "wave": 4
+            },
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.045
             }
           ]
         },
@@ -137,6 +127,16 @@
             {
               "condition": "armorful:wave",
               "wave": 7
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:diamond_boots",
+          "conditions": [
+            {
+              "condition": "armorful:wave",
+              "wave": 8
             }
           ]
         }
