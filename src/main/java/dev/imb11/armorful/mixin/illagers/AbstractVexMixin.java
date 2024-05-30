@@ -1,7 +1,6 @@
 package dev.imb11.armorful.mixin.illagers;
 
 import dev.imb11.armorful.util.ArmorfulUtil;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.EntityType;
@@ -23,7 +22,11 @@ public abstract class AbstractVexMixin extends Monster {
     }
 
     @Inject(method = "finalizeSpawn", at = @At("HEAD"), cancellable = false)
-    public void initializeArmor(ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance, MobSpawnType mobSpawnType, SpawnGroupData spawnGroupData, CompoundTag compoundTag, CallbackInfoReturnable<SpawnGroupData> cir) {
+    /*? if <=1.20.4 {*//*
+    public void initializeArmor(ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance, MobSpawnType mobSpawnType, SpawnGroupData spawnGroupData, net.minecraft.nbt.CompoundTag compoundTag, CallbackInfoReturnable<SpawnGroupData> cir) {
+    *//*? } else { */
+    public void initializeArmor(ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance, MobSpawnType mobSpawnType, SpawnGroupData spawnGroupData, CallbackInfoReturnable<SpawnGroupData> cir) {
+    /*? } */
         if(serverLevelAccessor instanceof ServerLevel) {
             ArmorfulUtil.giveArmorNaturally(this.random, this, difficultyInstance);
         }
