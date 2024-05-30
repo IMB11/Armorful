@@ -1,0 +1,16 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "dev.imb11.armorful.mixin",
+    "compatibilityLevel": "JAVA_17",
+    "mixins": [
+        "drowned.DrownedEntityMixin",
+        "illagers.AbstractRaiderMixin",
+        "illagers.AbstractVexMixin"
+    ],
+    "client": [
+    ],
+    "injectors": {
+        "defaultRequire": 1
+  }
+}

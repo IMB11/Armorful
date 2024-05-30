@@ -1,3 +1,0 @@
-accessWidener v2 named
-accessible field net/minecraft/loot/context/LootContextType$Builder required Ljava/util/Set;
-accessible method net/minecraft/loot/condition/RandomChanceLootCondition <init> (F)V

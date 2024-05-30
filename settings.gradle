@@ -4,6 +4,24 @@ pluginManagement {
             name = 'Fabric'
             url = 'https://maven.fabricmc.net/'
         }
+        maven {
+            url = "https://maven.kikugie.dev/releases"
+        }
         gradlePluginPortal()
     }
 }
+
+plugins {
+    id "dev.kikugie.stonecutter" version "0.3.8"
+}
+
+stonecutter {
+    shared {
+        versions '1.20.6', '1.20.4', '1.20.2', '1.20.1'
+        vcsVersion '1.20.4'
+    }
+
+    create rootProject
+}
+
+// gradlew migrateMappings --mappings net.minecraft:mappings:1.20.4
