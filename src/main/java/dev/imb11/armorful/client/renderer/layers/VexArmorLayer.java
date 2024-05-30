@@ -59,13 +59,13 @@ public class VexArmorLayer extends RenderLayer<Vex, VexModel> {
                 this.setPartVisibility(pModel, pSlot);
                 Model model = getArmorModel(pSlot);
                 boolean flag1 = itemstack.hasFoil();
-                /*? >=1.20.6 {*/
+                /*? >=1.20.6 {*//*
                 if (armoritem.components().has(net.minecraft.core.component.DataComponents.DYED_COLOR)) {
                     int i = armoritem.components().get(net.minecraft.core.component.DataComponents.DYED_COLOR).rgb();
-                /*? } else {*//*
+                *//*? } else {*/
                 if (armoritem instanceof net.minecraft.world.item.DyeableLeatherItem) {
                     int i = ((net.minecraft.world.item.DyeableLeatherItem) armoritem).getColor(itemstack);
-                *//*?}*/
+                /*?}*/
                     float f = (float) (i >> 16 & 255) / 255.0F;
                     float f1 = (float) (i >> 8 & 255) / 255.0F;
                     float f2 = (float) (i & 255) / 255.0F;
@@ -170,11 +170,11 @@ public class VexArmorLayer extends RenderLayer<Vex, VexModel> {
 
     public ResourceLocation getArmorResource(ItemStack stack, EquipmentSlot slot, String type) {
         ArmorItem item = (ArmorItem) stack.getItem();
-        /*? >=1.20.6 {*/
+        /*? >=1.20.6 {*//*
         String texture = item.getMaterial().getRegisteredName();
-        /*? } else {*//*
+        *//*? } else {*/
         String texture = item.getMaterial().getName();
-        *//*?}*/
+        /*?}*/
         String domain = "minecraft";
         int idx = texture.indexOf(':');
         if (idx != -1) {

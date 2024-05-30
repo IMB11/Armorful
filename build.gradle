@@ -30,8 +30,15 @@ dependencies {
 
 if(stonecutter.current.active) {
     loom {
-        accessWidenerPath = getRootProject().file("src/main/resources/aw/" + stonecutter.current.version + ".accesswidener")
+        runConfigs.all {
+            ideConfigGenerated = true // generate IDE tasks for running client, server and testmod, datagen if those are present
+            runDir "../../run" // use a global run directory for all versions
+        }
     }
+}
+
+loom {
+    accessWidenerPath = getRootProject().file("src/main/resources/aw/" + stonecutter.current.version + ".accesswidener")
 }
 
 processResources {

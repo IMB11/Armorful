@@ -12,8 +12,8 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.SpawnGroupData;
-import net.minecraft.world.entity.monster.AbstractIllager;
-import net.minecraft.world.entity.monster.Witch;
+import net.minecraft.world.entity.monster.PatrollingMonster;
+import net.minecraft.world.entity.raid.Raid;
 import net.minecraft.world.entity.raid.Raider;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -23,13 +23,19 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.List;
 import java.util.Map;
 
-@Mixin(value = {AbstractIllager.class, Witch.class})
-public abstract class AbstractRaiderMixin extends Raider {
+@Mixin(value = Raider.class)
+public abstract class AbstractRaiderMixin extends PatrollingMonster {
+    @Shadow @Nullable public abstract Raid getCurrentRaid();
+
     @Unique
     private static final Map<EquipmentSlot, ResourceLocation> EQUIPMENT_SLOT_ITEMS = Util.make(Maps.newHashMap(),
             (slotItems) -> {
@@ -57,25 +63,19 @@ public abstract class AbstractRaiderMixin extends Raider {
         };
     }
 
-    @Override
-    /*? <1.20.6 {*//*
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty,
-                                 MobSpawnType spawnReason, @Nullable SpawnGroupData entityData, @Nullable net.minecraft.nbt.CompoundTag nbtData) {
-    *//*? } else {*/
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType spawnReason, @Nullable SpawnGroupData entityData) {
-    /*?}*/
+    @Inject(method = "finalizeSpawn", at = @At("TAIL"), cancellable = false)
+    /*? <1.20.6 {*/
+    public void finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType spawnReason, SpawnGroupData entityData, net.minecraft.nbt.CompoundTag nbtData, CallbackInfoReturnable<SpawnGroupData> cir) {
+    /*? } else {*//*
+    public void finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType spawnReason, SpawnGroupData entityData, CallbackInfoReturnable<SpawnGroupData> cir) {
+    *//*?}*/
         if(world instanceof ServerLevel) {
-            if (this.getCurrentRaid() != null && spawnReason == MobSpawnType.EVENT) {
+            if (this.getCurrentRaid() != null || spawnReason == MobSpawnType.EVENT) {
                 this.giveArmorOnRaids();
             } else {
                 ArmorfulUtil.giveArmorNaturally(this.random, this, difficulty);
             }
         }
-        /*? <1.20.6 {*//*
-        return super.finalizeSpawn(world, difficulty, spawnReason, entityData, nbtData);
-        *//*? } else {*/
-        return super.finalizeSpawn(world, difficulty, spawnReason, entityData);
-        /*?}*/
     }
 
     @Unique
@@ -102,11 +102,11 @@ public abstract class AbstractRaiderMixin extends Raider {
     @Unique
     public List<ItemStack> getItemsFromLootTable(EquipmentSlot slot) {
         if (EQUIPMENT_SLOT_ITEMS.containsKey(slot)) {
-            /*? >=1.20.6 {*/
+            /*? >=1.20.6 {*//*
             LootTable loot = this.level().getServer().reloadableRegistries().getLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE, EQUIPMENT_SLOT_ITEMS.get(slot)));
-            /*? } else {*//*
+            *//*? } else {*/
             LootTable loot = this.level().getServer().getLootData().getLootTable(EQUIPMENT_SLOT_ITEMS.get(slot));
-            *//*?}*/
+            /*?}*/
             LootParams.Builder lootcontext$builder = (new LootParams.Builder((ServerLevel) this.level()))
                     .withParameter(LootContextParams.THIS_ENTITY, this);
             return loot.getRandomItems(lootcontext$builder.create(ArmorfulLootTables.SLOT));

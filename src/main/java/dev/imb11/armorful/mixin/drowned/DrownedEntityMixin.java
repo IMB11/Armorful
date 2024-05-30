@@ -22,11 +22,11 @@ public abstract class DrownedEntityMixin extends Zombie {
     }
 
     @Inject(method = "finalizeSpawn", at = @At("HEAD"), cancellable = false)
-    /*? if <=1.20.4 {*//*
+    /*? if <=1.20.4 {*/
     public void initializeArmor(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType spawnReason, SpawnGroupData entityData, net.minecraft.nbt.CompoundTag entityNbt, CallbackInfoReturnable<SpawnGroupData> cir) {
-    *//*?} else {*/
+    /*?} else {*//*
     public void initializeArmor(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType spawnReason, SpawnGroupData entityData, CallbackInfoReturnable<SpawnGroupData> cir) {
-    /*?}*/
+    *//*?}*/
         if(world instanceof ServerLevel) {
             if (spawnReason == MobSpawnType.STRUCTURE) return;
             ArmorfulUtil.giveArmorNaturally(this.random, this, difficulty);

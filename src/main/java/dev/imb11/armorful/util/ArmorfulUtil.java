@@ -49,11 +49,11 @@ public class ArmorfulUtil {
 
     public static List<ItemStack> getNaturalSpawnItemsFromLootTable(LivingEntity entity, EquipmentSlot slot) {
         if (NATURAL_SPAWN_EQUIPMENT_SLOT_ITEMS.containsKey(slot)) {
-            /*? >=1.20.6 {*/
+            /*? >=1.20.6 {*//*
             LootTable loot = entity.level().getServer().reloadableRegistries().getLootTable(ResourceKey.create(Registries.LOOT_TABLE, NATURAL_SPAWN_EQUIPMENT_SLOT_ITEMS.get(slot)));
-            /*? } else {*//*
+            *//*? } else {*/
             LootTable loot = entity.level().getServer().getLootData().getLootTable(NATURAL_SPAWN_EQUIPMENT_SLOT_ITEMS.get(slot));
-            *//*?}*/
+            /*?}*/
             LootParams.Builder lootcontext$builder = (new LootParams.Builder((ServerLevel) entity.level()))
                     .withParameter(LootContextParams.THIS_ENTITY, entity);
             return loot.getRandomItems(lootcontext$builder.create(ArmorfulLootTables.SLOT));
@@ -63,13 +63,13 @@ public class ArmorfulUtil {
     }
 
     public static void giveArmorNaturally(RandomSource random, LivingEntity entity, DifficultyInstance difficulty) {
-        if (random.nextFloat() < 0.9F * difficulty.getSpecialMultiplier()) {
+        if (random.nextFloat() < 0.24F * difficulty.getSpecialMultiplier()) {
             float difficultyChance = entity.level().getDifficulty() == Difficulty.HARD ? 0.1F : 0.25F;
             boolean flag = true;
 
             for (EquipmentSlot slotType : EquipmentSlot.values()) {
                 if (slotType.getType() == EquipmentSlot.Type.ARMOR) {
-                    if (!flag && random.nextFloat() < difficultyChance + 1F) {
+                    if (!flag && random.nextFloat() < difficultyChance) {
                         break;
                     }
 
