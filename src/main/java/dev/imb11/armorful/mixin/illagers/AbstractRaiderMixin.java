@@ -59,6 +59,7 @@ public abstract class AbstractRaiderMixin extends PatrollingMonster {
             case 5 -> 0.42f;
             case 6 -> 0.44f;
             case 7 -> 0.48f;
+            case 8 -> 0.52f;
             default -> 0;
         };
     }
