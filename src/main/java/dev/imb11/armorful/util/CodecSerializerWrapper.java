@@ -1,5 +1,5 @@
-/*?if <1.20.2 {*//*
-package dev.imb11.armorful.util;
+/*? if <1.20.2 {*/
+/*package dev.imb11.armorful.util;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;

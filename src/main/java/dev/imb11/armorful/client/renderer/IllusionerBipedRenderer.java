@@ -1,6 +1,7 @@
 package dev.imb11.armorful.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import dev.imb11.armorful.util.ArmorfulUtil;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 import net.minecraft.client.renderer.entity.layers.ItemInHandLayer;
@@ -11,7 +12,7 @@ import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
 public class IllusionerBipedRenderer extends IllagerBipedRenderer<Illusioner> {
-    private static final ResourceLocation PILLAGER = new ResourceLocation("textures/entity/illager/illusioner.png");
+    private static final ResourceLocation PILLAGER = ArmorfulUtil.defaultID("textures/entity/illager/illusioner.png");
 
     public IllusionerBipedRenderer(Context builder) {
         super(builder);

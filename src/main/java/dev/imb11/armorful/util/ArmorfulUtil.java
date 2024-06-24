@@ -30,7 +30,11 @@ import java.util.Map;
 
 public class ArmorfulUtil {
     public static ResourceLocation id(String id) {
-        return new ResourceLocation(Armorful.MOD_ID, id);
+        return ResourceLocation.tryBuild(Armorful.MOD_ID, id);
+    }
+
+    public static ResourceLocation defaultID(String id) {
+        return ResourceLocation.tryBuild("minecraft", id);
     }
 
     public static ModelLayerLocation registerEntityModelLayer(String id, EntityModelLayerRegistry.TexturedModelDataProvider texturedModelDataProvider) {
@@ -49,11 +53,11 @@ public class ArmorfulUtil {
 
     public static List<ItemStack> getNaturalSpawnItemsFromLootTable(LivingEntity entity, EquipmentSlot slot) {
         if (NATURAL_SPAWN_EQUIPMENT_SLOT_ITEMS.containsKey(slot)) {
-            /*? >=1.20.6 {*//*
+            /*? >=1.20.6 {*/
             LootTable loot = entity.level().getServer().reloadableRegistries().getLootTable(ResourceKey.create(Registries.LOOT_TABLE, NATURAL_SPAWN_EQUIPMENT_SLOT_ITEMS.get(slot)));
-            *//*? } else {*/
-            LootTable loot = entity.level().getServer().getLootData().getLootTable(NATURAL_SPAWN_EQUIPMENT_SLOT_ITEMS.get(slot));
-            /*?}*/
+            /*?} else {*/
+            /*LootTable loot = entity.level().getServer().getLootData().getLootTable(NATURAL_SPAWN_EQUIPMENT_SLOT_ITEMS.get(slot));
+            *//*?}*/
             LootParams.Builder lootcontext$builder = (new LootParams.Builder((ServerLevel) entity.level()))
                     .withParameter(LootContextParams.THIS_ENTITY, entity);
             return loot.getRandomItems(lootcontext$builder.create(ArmorfulLootTables.SLOT));
@@ -68,7 +72,11 @@ public class ArmorfulUtil {
             boolean flag = true;
 
             for (EquipmentSlot slotType : EquipmentSlot.values()) {
-                if (slotType.getType() == EquipmentSlot.Type.ARMOR) {
+                /*? if <1.21 {*/
+                /*if (slotType.getType() == EquipmentSlot.Type.ARMOR) {
+                *//*?} else {*/
+                if (slotType.getType() == EquipmentSlot.Type.HUMANOID_ARMOR) {
+                    /*?}*/
                     if (!flag && random.nextFloat() < difficultyChance) {
                         break;
                     }

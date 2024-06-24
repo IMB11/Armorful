@@ -3,6 +3,7 @@ package dev.imb11.armorful.client.renderer.layers;
 import com.google.common.collect.Maps;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import dev.imb11.armorful.util.ArmorfulUtil;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.Model;
 import net.minecraft.client.model.VexModel;
@@ -59,13 +60,13 @@ public class VexArmorLayer extends RenderLayer<Vex, VexModel> {
                 this.setPartVisibility(pModel, pSlot);
                 Model model = getArmorModel(pSlot);
                 boolean flag1 = itemstack.hasFoil();
-                /*? >=1.20.6 {*//*
+                /*? >=1.20.6 {*/
                 if (armoritem.components().has(net.minecraft.core.component.DataComponents.DYED_COLOR)) {
                     int i = armoritem.components().get(net.minecraft.core.component.DataComponents.DYED_COLOR).rgb();
-                *//*? } else {*/
-                if (armoritem instanceof net.minecraft.world.item.DyeableLeatherItem) {
+                /*?} else {*/
+                /*if (armoritem instanceof net.minecraft.world.item.DyeableLeatherItem) {
                     int i = ((net.minecraft.world.item.DyeableLeatherItem) armoritem).getColor(itemstack);
-                /*?}*/
+                *//*?}*/
                     float f = (float) (i >> 16 & 255) / 255.0F;
                     float f1 = (float) (i >> 8 & 255) / 255.0F;
                     float f2 = (float) (i & 255) / 255.0F;
@@ -156,8 +157,13 @@ public class VexArmorLayer extends RenderLayer<Vex, VexModel> {
     }
 
     private void renderModel(PoseStack pPoseStack, MultiBufferSource pBuffer, int p_117109_, boolean p_117111_, net.minecraft.client.model.Model pModel, float p_117114_, float p_117115_, float p_117116_, ResourceLocation armorResource) {
-        VertexConsumer vertexconsumer = ItemRenderer.getArmorFoilBuffer(pBuffer, RenderType.armorCutoutNoCull(armorResource), false, p_117111_);
+        /*? if <1.21 {*/
+        /*VertexConsumer vertexconsumer = ItemRenderer.getArmorFoilBuffer(pBuffer, RenderType.armorCutoutNoCull(armorResource), false, p_117111_);
         pModel.renderToBuffer(pPoseStack, vertexconsumer, p_117109_, OverlayTexture.NO_OVERLAY, p_117114_, p_117115_, p_117116_, 1.0F);
+        *//*?} else {*/
+        VertexConsumer vertexconsumer = ItemRenderer.getArmorFoilBuffer(pBuffer, RenderType.entityCutout(armorResource), false);
+        pModel.renderToBuffer(pPoseStack, vertexconsumer, p_117109_, OverlayTexture.NO_OVERLAY);
+        /*?}*/
     }
 
     private HumanoidModel getArmorModel(EquipmentSlot pSlot) {
@@ -170,11 +176,11 @@ public class VexArmorLayer extends RenderLayer<Vex, VexModel> {
 
     public ResourceLocation getArmorResource(ItemStack stack, EquipmentSlot slot, String type) {
         ArmorItem item = (ArmorItem) stack.getItem();
-        /*? >=1.20.6 {*//*
+        /*? >=1.20.6 {*/
         String texture = item.getMaterial().getRegisteredName();
-        *//*? } else {*/
-        String texture = item.getMaterial().getName();
-        /*?}*/
+        /*?} else {*/
+        /*String texture = item.getMaterial().getName();
+        *//*?}*/
         String domain = "minecraft";
         int idx = texture.indexOf(':');
         if (idx != -1) {
@@ -185,7 +191,7 @@ public class VexArmorLayer extends RenderLayer<Vex, VexModel> {
         ResourceLocation resourcelocation = ARMOR_LOCATION_CACHE.get(s1);
 
         if (resourcelocation == null) {
-            resourcelocation = new ResourceLocation(s1);
+            resourcelocation = ArmorfulUtil.defaultID(s1);
             ARMOR_LOCATION_CACHE.put(s1, resourcelocation);
         }
 

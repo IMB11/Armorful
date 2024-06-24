@@ -23,10 +23,10 @@ public abstract class AbstractVexMixin extends Monster {
 
     @Inject(method = "finalizeSpawn", at = @At("HEAD"), cancellable = false)
     /*? if <=1.20.4 {*/
-    public void initializeArmor(ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance, MobSpawnType mobSpawnType, SpawnGroupData spawnGroupData, net.minecraft.nbt.CompoundTag compoundTag, CallbackInfoReturnable<SpawnGroupData> cir) {
-    /*? } else { *//*
+    /*public void initializeArmor(ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance, MobSpawnType mobSpawnType, SpawnGroupData spawnGroupData, net.minecraft.nbt.CompoundTag compoundTag, CallbackInfoReturnable<SpawnGroupData> cir) {
+    *//*?} else {*/
     public void initializeArmor(ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance, MobSpawnType mobSpawnType, SpawnGroupData spawnGroupData, CallbackInfoReturnable<SpawnGroupData> cir) {
-    *//*? } */
+    /*?}*/
         if(serverLevelAccessor instanceof ServerLevel) {
             ArmorfulUtil.giveArmorNaturally(this.random, this, difficultyInstance);
         }

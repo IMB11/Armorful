@@ -1,6 +1,7 @@
 package dev.imb11.armorful.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import dev.imb11.armorful.util.ArmorfulUtil;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 import net.minecraft.client.renderer.entity.layers.ItemInHandLayer;
@@ -8,7 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.monster.Evoker;
 
 public class EvokerBipedRenderer extends IllagerBipedRenderer<Evoker> {
-    private static final ResourceLocation PILLAGER = new ResourceLocation("textures/entity/illager/evoker.png");
+    private static final ResourceLocation PILLAGER = ArmorfulUtil.defaultID("textures/entity/illager/evoker.png");
 
     public EvokerBipedRenderer(Context builder) {
         super(builder);

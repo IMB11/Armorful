@@ -5,6 +5,7 @@ import dev.imb11.armorful.client.ArmorfulClient;
 import dev.imb11.armorful.client.model.IllagerArmorModel;
 import dev.imb11.armorful.client.model.WitchBipedModel;
 import dev.imb11.armorful.client.renderer.layers.WitchBipedItemLayer;
+import dev.imb11.armorful.util.ArmorfulUtil;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
@@ -15,7 +16,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.monster.Witch;
 
 public class WitchBipedRenderer<T extends Witch> extends MobRenderer<T, WitchBipedModel<T>> {
-    private static final ResourceLocation WITCH_LOCATION = new ResourceLocation("textures/entity/witch.png");
+    private static final ResourceLocation WITCH_LOCATION = ArmorfulUtil.defaultID("textures/entity/witch.png");
 
     public WitchBipedRenderer(EntityRendererProvider.Context builder) {
         super(builder, new WitchBipedModel(builder.bakeLayer(ArmorfulClient.WITCH_ARMOR_LAYER)), 0.5F);
