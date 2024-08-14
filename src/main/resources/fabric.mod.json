@@ -30,7 +30,7 @@
   "depends": {
     "fabricloader": "*",
     "fabric": "*",
-    "mru": "*",
+    "mru": "~0.4.5",
     "minecraft": "${target_minecraft}"
   }
 }
