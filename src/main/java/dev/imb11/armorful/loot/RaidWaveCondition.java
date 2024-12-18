@@ -11,20 +11,12 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 public record RaidWaveCondition(int wave) implements LootItemCondition {
-    /*? if >1.20.4 {*/
     public static final com.mojang.serialization.MapCodec<RaidWaveCondition> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
             Codec.INT.fieldOf("wave").forGetter(RaidWaveCondition::wave)
     ).apply(instance, RaidWaveCondition::new));
-    /*?} else {*/
-    /*public static final Codec<RaidWaveCondition> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            Codec.INT.fieldOf("wave").forGetter(RaidWaveCondition::wave)
-    ).apply(instance, RaidWaveCondition::new));
-    *//*?}*/
-    /*? if <1.20.2 {*/
-    /*public static final LootItemConditionType WAVE = new LootItemConditionType(new dev.imb11.armorful.util.CodecSerializerWrapper<>(CODEC));
-    *//*?} else {*/
+
     public static final LootItemConditionType WAVE = new LootItemConditionType(CODEC);
-    /*?}*/
+
 
     @Override
     public @NotNull LootItemConditionType getType() {

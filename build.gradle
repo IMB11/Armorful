@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.6-SNAPSHOT'
+    id 'fabric-loom' version '1.9-SNAPSHOT'
 }
 
 version =  property("mod.version") + "+" + stonecutter.current.version
@@ -50,7 +50,7 @@ processResources {
 }
 
 java {
-    var version = (stonecutter.current.version > "1.20.4") ? JavaVersion.VERSION_21 : JavaVersion.VERSION_17
+    var version = JavaVersion.VERSION_21
     sourceCompatibility = version
     targetCompatibility = version
 }

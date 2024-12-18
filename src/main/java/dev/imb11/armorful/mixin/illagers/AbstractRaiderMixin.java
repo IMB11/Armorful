@@ -65,11 +65,7 @@ public abstract class AbstractRaiderMixin extends PatrollingMonster {
     }
 
     @Inject(method = "finalizeSpawn", at = @At("TAIL"), cancellable = false)
-    /*? <1.20.6 {*/
-    /*public void finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType spawnReason, SpawnGroupData entityData, net.minecraft.nbt.CompoundTag nbtData, CallbackInfoReturnable<SpawnGroupData> cir) {
-    *//*?} else {*/
     public void finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType spawnReason, SpawnGroupData entityData, CallbackInfoReturnable<SpawnGroupData> cir) {
-    /*?}*/
         if(world instanceof ServerLevel) {
             if (this.getCurrentRaid() != null || spawnReason == MobSpawnType.EVENT) {
                 this.giveArmorOnRaids();
@@ -87,11 +83,7 @@ public abstract class AbstractRaiderMixin extends PatrollingMonster {
         if (this.getRandom().nextFloat() < waveChances) {
             boolean flag = true;
             for (EquipmentSlot equipmentslottype : EquipmentSlot.values()) {
-                /*? if <1.21 {*/
-                /*if (equipmentslottype.getType() == EquipmentSlot.Type.ARMOR) {
-                *//*?} else {*/
                 if (equipmentslottype.getType() == EquipmentSlot.Type.HUMANOID_ARMOR) {
-                /*?}*/
                     if (!flag && this.random.nextFloat() < difficultyChance) {
                         break;
                     }
@@ -107,11 +99,8 @@ public abstract class AbstractRaiderMixin extends PatrollingMonster {
     @Unique
     public List<ItemStack> getItemsFromLootTable(EquipmentSlot slot) {
         if (EQUIPMENT_SLOT_ITEMS.containsKey(slot)) {
-            /*? >=1.20.6 {*/
             LootTable loot = this.level().getServer().reloadableRegistries().getLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE, EQUIPMENT_SLOT_ITEMS.get(slot)));
-            /*?} else {*/
-            /*LootTable loot = this.level().getServer().getLootData().getLootTable(EQUIPMENT_SLOT_ITEMS.get(slot));
-            *//*?}*/
+
             LootParams.Builder lootcontext$builder = (new LootParams.Builder((ServerLevel) this.level()))
                     .withParameter(LootContextParams.THIS_ENTITY, this);
             return loot.getRandomItems(lootcontext$builder.create(ArmorfulLootTables.SLOT));
